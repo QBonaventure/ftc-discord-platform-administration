@@ -21,6 +21,14 @@ services:
       - core-db
     env_file:
       - .env
+    secrets:
+      - ftcbot-db-password
+      - ftcbot-db-user
+      - ftcbot-broker-password
+      - ftcbot-broker-username
+      - ftcbot-discord-auth-token
+      - ftcbot-discord-token
+      - ftcbot-website-session-key
     ports:
       - "9000"
     volumes:
@@ -47,6 +55,23 @@ services:
     networks:
       ftcbot_dev:
       traefik:
+      
+      
+secrets:
+  ftcbot-db-password:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-db-password
+  ftcbot-db-user:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-db-user
+  ftcbot-broker-password:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-broker-password
+  ftcbot-broker-username:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-broker-username
+  ftcbot-discord-auth-token:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-discord-auth-token
+  ftcbot-discord-token:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-discord-token
+  ftcbot-website-session-key:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-website-session-key 
 
       
 networks:
